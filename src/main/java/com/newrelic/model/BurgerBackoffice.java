@@ -1,4 +1,4 @@
-package com.newrelic;
+package com.newrelic.model;
 
 import java.util.Collections;
 import java.util.List;

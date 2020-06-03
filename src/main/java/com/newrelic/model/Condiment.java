@@ -1,4 +1,4 @@
-package com.newrelic;
+package com.newrelic.model;
 
 public enum Condiment {
 
