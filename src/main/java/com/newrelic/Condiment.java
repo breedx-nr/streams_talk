@@ -2,6 +2,7 @@ package com.newrelic;
 
 public enum Condiment {
 
-    mayo, mustard, ketchup, bbq, aioli, dijon
+    mayo, yellowMustard, stoneGroundMustard, ketchup,
+    bbq, aioli, dijon, peanutButter
 
 }

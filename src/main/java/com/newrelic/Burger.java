@@ -2,36 +2,36 @@ package com.newrelic;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
-import static java.util.Collections.unmodifiableSet;
 import static java.util.List.copyOf;
 
 public class Burger {
 
+    private final String name;
     private final Bun bun;
-    private final Set<Patty> patties;
+    private final List<Patty> patties;
     private final Optional<Cheese> cheese;
     private final List<Ingredient> ingredients;
     private final List<Condiment> condiments;
 
     private Burger(Builder builder) {
+        this.name = builder.name;
         this.bun = builder.bun;
-        this.patties = unmodifiableSet(builder.patties);
+        this.patties = copyOf(builder.patties);
         this.cheese = builder.cheese;
         this.ingredients = copyOf(builder.ingredients);
         this.condiments = copyOf(builder.condiments);
     }
 
-    public static Builder build() {
-        return new Builder();
+    public static Builder builder(String name) {
+        return new Builder(name);
     }
 
     public Bun getBun() {
         return bun;
     }
 
-    public Set<Patty> getPatties() {
+    public List<Patty> getPatties() {
         return patties;
     }
 
@@ -48,13 +48,18 @@ public class Burger {
     }
 
     public static class Builder {
+        private final String name;
         private Bun bun;
-        private Set<Patty> patties;
+        private List<Patty> patties;
         private Optional<Cheese> cheese;
         private List<Ingredient> ingredients;
         private List<Condiment> condiments;
 
-        public Builder patties(Set<Patty> patties) {
+        public Builder(String name) {
+            this.name = name;
+        }
+
+        public Builder patties(List<Patty> patties) {
             this.patties = patties;
             return this;
         }
@@ -77,6 +82,10 @@ public class Burger {
         public Builder condiments(List<Condiment> condiments){
             this.condiments = condiments;
             return this;
+        }
+
+        public Burger build(){
+            return new Burger(this);
         }
     }
 }
