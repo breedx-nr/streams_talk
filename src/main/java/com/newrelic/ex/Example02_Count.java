@@ -11,10 +11,10 @@ import static com.newrelic.model.BurgerBackoffice.dailyOrders;
  * The answer is obtained by summing up the number of burgers
  * sold each day.
  */
-public class Example01_Count {
+public class Example02_Count {
 
     public static void main(String[] args) {
-        Example01_Count ex = new Example01_Count();
+        Example02_Count ex = new Example02_Count();
         System.out.println("We sold " + ex.looped() + " burgers");
         System.out.println("We sold " + ex.loopImproved() + " burgers");
         System.out.println("We sold " + ex.streamed() + " burgers");
