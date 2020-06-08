@@ -1,14 +1,8 @@
 package com.newrelic.ex;
 
-import com.newrelic.model.Burger;
-
-import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
-import java.util.function.IntUnaryOperator;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
-
-import static com.newrelic.model.BurgerBackoffice.dailyOrders;
 
 /**
  * Demonstration of lazy evaluation.
@@ -25,7 +19,7 @@ public class Example01_Lazy {
         System.out.println("Program complete");
     }
 
-    private void lazy() {
+    void lazy() {
         IntStream.range(10, 20)
                 .map(operand -> {
                     System.out.println("Processing " + operand);
@@ -33,7 +27,7 @@ public class Example01_Lazy {
                 });
     }
 
-    private void infinite() {
+    void infinite() {
         AtomicLong value = new AtomicLong();
         Stream.generate(value::getAndIncrement);
     }
