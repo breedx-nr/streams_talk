@@ -11,15 +11,16 @@ import static com.newrelic.model.BurgerBackoffice.dailyOrders;
  * The answer is obtained by summing up the number of burgers
  * sold each day.
  */
-public class Example1 {
+public class Example01_Count {
 
     public static void main(String[] args) {
-        System.out.println("We sold " + looped() + " burgers");
-        System.out.println("We sold " + loopImproved() + " burgers");
-        System.out.println("We sold " + streamed() + " burgers");
+        Example01_Count ex = new Example01_Count();
+        System.out.println("We sold " + ex.looped() + " burgers");
+        System.out.println("We sold " + ex.loopImproved() + " burgers");
+        System.out.println("We sold " + ex.streamed() + " burgers");
     }
 
-    static int looped() {
+    int looped() {
         int total = 0;
         for (int i = 0; i < dailyOrders.size(); i++) {
             List<Burger> daily = dailyOrders.get(i);
@@ -28,7 +29,7 @@ public class Example1 {
         return total;
     }
 
-    static int loopImproved() {
+    int loopImproved() {
         int total = 0;
         for (List<Burger> daily : dailyOrders) {
             total += daily.size();
@@ -36,7 +37,7 @@ public class Example1 {
         return total;
     }
 
-    static int streamed() {
+    int streamed() {
         return dailyOrders.stream()
                 .map(List::size)
                 .reduce(0, Integer::sum);
