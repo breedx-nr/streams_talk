@@ -14,9 +14,9 @@ import static com.newrelic.model.Condiment.aioli;
 import static com.newrelic.model.Condiment.bbq;
 import static com.newrelic.model.Condiment.ketchup;
 import static com.newrelic.model.Condiment.mayo;
+import static com.newrelic.model.Condiment.peanutButter;
 import static com.newrelic.model.Condiment.stoneGroundMustard;
 import static com.newrelic.model.Condiment.yellowMustard;
-import static com.newrelic.model.Condiment.peanutButter;
 import static com.newrelic.model.Ingredient.bacon;
 import static com.newrelic.model.Ingredient.friedBanana;
 import static com.newrelic.model.Ingredient.friedEgg;
@@ -34,6 +34,7 @@ import static com.newrelic.model.Patty.blackBean;
 import static com.newrelic.model.Patty.elk;
 import static com.newrelic.model.Patty.veggie;
 import static java.util.Collections.emptyList;
+import static java.util.Collections.unmodifiableList;
 
 public class SkumburgerMenu {
 
@@ -92,4 +93,9 @@ public class SkumburgerMenu {
             .ingredients(List.of(bacon, onion, jalapeno, onionRing, friedEgg, pastrami))
             .condiments(List.of(bbq, aioli))
             .build();
+
+    public static List<Burger> availableBurgers(){
+        return unmodifiableList(List.of(THE_CLASSIC, THE_ELVIS, THE_PORTLANDER,
+                CHILDS_PLAY, THE_HUNTSMAN, DAINTY_DAISY, SAY_YOLO));
+    }
 }
