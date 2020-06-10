@@ -11,8 +11,8 @@ import java.util.stream.Collectors;
 import static com.newrelic.model.SkumburgerMenu.availableBurgers;
 
 /**
- * Building on example 03, we want a list of all available patties,
- * but we don't want to see the frustrating duplicates any more!
+ * Time to print our menu!  Lets get the burgers in alphabetical order
+ * so that we can print them out!
  */
 public class Example05_Sorting {
 
@@ -43,6 +43,7 @@ public class Example05_Sorting {
                 .collect(Collectors.toList());
     }
 
+    // a basic printing press
     private static String names(List<Burger> burgs) {
         return burgs.stream().map(Burger::getName).collect(Collectors.joining(", "));
     }
