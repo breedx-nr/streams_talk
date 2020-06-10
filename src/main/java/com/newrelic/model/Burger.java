@@ -27,6 +27,10 @@ public class Burger {
         return new Builder(name);
     }
 
+    public String getName() {
+        return name;
+    }
+
     public Bun getBun() {
         return bun;
     }
