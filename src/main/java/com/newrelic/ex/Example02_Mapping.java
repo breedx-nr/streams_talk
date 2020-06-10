@@ -10,8 +10,8 @@ import java.util.stream.Collectors;
 import static com.newrelic.model.SkumburgerMenu.availableBurgers;
 
 /**
- * Say we want to get a list of all the patties, so we know what
- * kinds to prepare for.
+ * Say we want to get a list of all the patties on our menu, so that
+ * we can find responsible suppliers for them.
  */
 public class Example02_Mapping {
 
